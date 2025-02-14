@@ -2,11 +2,11 @@ import { fetchProductById } from '@/app/actions/productActions';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import Image from 'next/image';
 
-export default async function ProductPage({
-  params,
-}: {
+export interface PageProps {
   params: { id: string };
-}) {
+}
+
+export default async function ProductPage({ params }: PageProps) {
   // Fetch the product by its ID
   const product = await fetchProductById(params.id);
 
