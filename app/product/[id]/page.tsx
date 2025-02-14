@@ -6,12 +6,15 @@ export default async function ProductPage({
 }: {
   params: { id: string };
 }) {
+  // Fetch the product by its ID
   const product = await fetchProductById(params.id);
 
+  // Check if the product exists
   if (!product) {
     return <div>Product not found</div>;
   }
 
+  // Return the product details
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4">Product Details</h1>
